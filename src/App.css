@@ -2,21 +2,38 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+
+img {
+  width: 100%
+}
+.container{
+  display: flex
+}
+.item {
+  flex: 1;
+  padding: 30px;
+  border: 1px solid green;
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  background-color: green;
+  transition: bottom ease 1s;
+  opacity: .6;
+}
+.item:hover .overlay{
+  opacity: .6;
+  bottom: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
 }
 
-.App-link {
-  color: #09d3ac;
-}
+//{}
