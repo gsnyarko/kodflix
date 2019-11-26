@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: rgb(241, 235, 235);
 }
 img{
   width: 100%;
@@ -10,7 +11,7 @@ img{
 }
 
 .item {
-  padding: 30px;
+  padding: 15px;
   border: 1px solid green;
   position: relative;
   overflow: hidden;
@@ -24,6 +25,7 @@ img{
   background-color: green;
   transition: bottom ease 1s;
   opacity: .6;
+  font-size: 10px;
 }
 
 .item:hover .overlay{

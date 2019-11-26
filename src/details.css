@@ -1,0 +1,12 @@
+
+.Details .content {
+display: flex;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .Details .content  {
+        flex-direction: column-reverse;
+    }
+    
+  }
