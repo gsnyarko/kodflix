@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Imagini from './imagini';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Details from './details';
-import NotFound from './not found';
-
-
+import NotFound from './notfound';
 import './App.css';
 
 

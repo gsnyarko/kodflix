@@ -1,5 +1,5 @@
 import React from 'react'
-import Movietitles from './movie titles';
+import Movietitles from './movietitles';
 import getImagini from './galleria-imagini'
 
 export default function Imagini() {
