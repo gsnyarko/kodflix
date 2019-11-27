@@ -38,6 +38,7 @@ export default class Details extends Component {
                         </img>
                         </div>
                         <Link to='/'>Back to home page</Link>
+                        <div><Link to='/fetch'>fetch</Link></div>
                 </div>
             )
     }
