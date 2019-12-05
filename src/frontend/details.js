@@ -1,49 +1,43 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import getImagini from './galleria-imagini';
-import './details.css'
+import React, { useEffect, useState } from 'react';
+import { useParams, Link, Redirect } from 'react-router-dom';
+import './details.css';
 
 
-export default class Details extends Component {
-    constructor() {
-        super();
-        this.state = {
-            movie: {}
-        };
-    }
+export default function Details(props) {
 
-    componentDidMount() {
-        let movieInfo = this.props.match.params.movieInfo;
-        let movie = getImagini().find(movie => movie.id === movieInfo
-        );
-        this.setState({
-            movie: movie
-        });
-    }
+    const { movieId } = useParams();
+    const [details, setDetails] = useState([]);
 
-    render() {
-        if (this.state.movie === undefined) {
-            return <Redirect to='/not-found' />
-        } else
-            return (
-                <div className='Details'>
-                        <h1>{this.state.movie.name}</h1>
-                        <div className='content'>
-                            <div className='text'>
-                                {this.state.movie.information}
-                            </div>
-                        <img className='image'
-                            src={this.state.movie.pic}
-                            alt={this.state.movie.name}>
-                        </img>
-                        </div>
-                        <Link to='/'>Back to home page</Link>
-                        <div><Link to='/fetch'>fetch</Link></div>
+    useEffect(() => {
+        fetch('/rest/movies')
+            .then(response => response.json())
+            .then(details => setDetails(details
+                .find(detail => detail.id === movieId)
+            ))
+    }, [movieId]);
+
+    if (details === undefined) {
+        return <Redirect to='/not-found' />
+    } else if (details.length === 0) {
+        return <div></div>
+    } else {
+        return (
+            <div className='Details'>
+                <h1>{details.name}</h1>
+                <div className='content'>
+                    <div className='text'>
+                        {details.information}
+                    </div>
+                    {<img src={require(`./images/${details.id}.jpg`)} alt={details.id} />}
                 </div>
-            )
+                <Link to='/'>Back to home page</Link>
+                <div><Link to='/fetch'>fetch</Link></div>
+            </div>
+        );
+   
+    
+
+
     }
+    
 }
-
-
-
-

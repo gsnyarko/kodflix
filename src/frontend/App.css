@@ -2,9 +2,11 @@
   text-align: center;
   background: rgb(241, 235, 235);
 }
+
 img{
   width: 100%;
 }
+
 .container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
