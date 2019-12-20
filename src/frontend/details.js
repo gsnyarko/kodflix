@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, Redirect } from 'react-router-dom';
 import './details.css';
+import Loading from './Loading';
 
 
 export default function Details(props) {
@@ -19,7 +20,7 @@ export default function Details(props) {
     if (details === undefined) {
         return <Redirect to='/not-found' />
     } else if (details.length === 0) {
-        return <div></div>
+        return <div>< Loading/></div>
     } else {
         return (
             <div className='Details'>

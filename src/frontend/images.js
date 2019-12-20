@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Movietitles from './movietitles';
+import { Redirect } from 'react-router-dom';
+import Loading from './Loading';
 
 
 export default function Imagini() {
@@ -12,7 +14,11 @@ export default function Imagini() {
       .then(movies => setMovies(movies))
   }, []);
 
-if (movies) {
+  if (movies === undefined) {
+    return <Redirect to='/not-found' />
+} else if (movies.length === 0) {
+    return <div>< Loading/></div>
+} else {
   return (
     <div className='container'>
       {
@@ -26,9 +32,7 @@ if (movies) {
       }
     </div>
   );
-} else {
-  return <h1> no data</h1>
-}
+} 
 }
 
 
